@@ -30,5 +30,33 @@
         <b>Ir:</b><span th:text="${Algun.Ir}"></span><br>
         <b>Resistente Agua:</b><span th:text="${Algun.ResistenteAgua}"></span><br>
         <b>Cantidad sim:</b><span th:text="${Algun.CantidadSim}"></span><br>
+        
+        <h4>LISTA DE CELULARES</h4>
+        <hr>
+        <div th:if="${celulares != null and !celulares.empty}">
+            <table border="1" >
+                <tr>
+                    <th>MARCA</th>
+                    <th>IMEI</th>
+                    <th>PULGADAS</th>
+                    <th>MEGAPIXELES</th>
+                    <th>Ram</th>
+                    <th>Almacenamiento Principal</th>
+                    <th>MEGAPIXELES</th>
+                </tr>
+                <tr th:each="c: ${celulares}">
+                    <td th:text="${c.marca}"></td>
+                    <td th:text="${c.imei}"></td>
+                    <td th:text="${c.pulgadas}"></td>
+                    <td th:text="${c.megapixeles}"></td>
+                    <td th:text="${c.ram}"></td>
+                    <td th:text="${c.almacenimientoPrincial}"></td>
+                    <td th:text="${c.megapixeles}"></td>
+                </tr>
+            </table>
+        </div>
+        <div th:if="${celulares == null or celulares.empty}">
+            La lista de celulares esta vacia.
+         </div>   
     </body>
 </html>

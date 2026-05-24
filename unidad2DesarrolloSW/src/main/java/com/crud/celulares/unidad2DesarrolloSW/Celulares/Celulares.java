@@ -12,8 +12,9 @@ import lombok.Data;
 @Data
 public class Celulares {
 
-    public static Celulares c;
-
+    public static Celulares c1;
+    public static Celulares c2;
+    public static Celulares c3;
     //PROPIEDADES
     private String marca;
     private String imei;
