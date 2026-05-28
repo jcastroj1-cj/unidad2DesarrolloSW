@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">   
-<html>
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
@@ -10,53 +9,9 @@
         <p th:text="${mensaje}"></p>
         <p th:text="${dato}"></p>
         <hr>
-        <b>Marca:</b><span th:text="${Algun.marca}"></span><br>
-        <b>Imei:</b><span th:text="${Algun.imei}"></span><br>
-        <b>Pulgadas:</b><span th:text="${Algun.Pulgadas}"></span><br>
-        <b>Megapixeles</b><span th:text="${Algun.Megapixeles}"></span><br>
-        <b>Ram:</b><span th:text="${Algun.Ram}"></span><br>
-        <b>Almacenimiento Princial:</b><span th:text="${Algun.AlmacenimientoPrincial}"></span><br>
-        <b>Almacenimiento Segundario:</b><span th:text="${Algun.AlmacenimientoSegundario}"></span><br>
-        <b>Sistema Operativo:</b><span th:text="${Algun.SistemaOperativo}"></span><br> 
-        <b>Operador:</b><span th:text="${Algun.Operador}"></span><br>
-        <b>Tecnologia Banda:</b><span th:text="${Algun.TecnologiaBanda}"></span><br>
-        <b>Wifi:</b><span th:text="${Algun.Wifi}"></span><br> 
-        <b>Bluethoo</b><span th:text="${Algun.Blueto}"></span><br>
-        <b>Camara:</b><span th:text="${Algun.Camara}"></span><br>
-        <b>Marca Cpu:</b><span th:text="${Algun.MarcaCpu}"></span><br> 
-        <b>Velocidad Cpu:</b><span th:text="${Algun.VelocidadCpu}"></span><br>
-        <b>nfc:</b><span th:text="${Algun.Nfc}"></span><br> 
-        <b>Huella:</b><span th:text="${Algun.Huella}"></span><br>
-        <b>Ir:</b><span th:text="${Algun.Ir}"></span><br>
-        <b>Resistente Agua:</b><span th:text="${Algun.ResistenteAgua}"></span><br>
-        <b>Cantidad sim:</b><span th:text="${Algun.CantidadSim}"></span><br>
-        
-        <h4>LISTA DE CELULARES</h4>
-        <hr>
-        <div th:if="${celulares != null and !celulares.empty}">
-            <table border="1" >
-                <tr>
-                    <th>MARCA</th>
-                    <th>IMEI</th>
-                    <th>PULGADAS</th>
-                    <th>MEGAPIXELES</th>
-                    <th>Ram</th>
-                    <th>Almacenamiento Principal</th>
-                    <th>MEGAPIXELES</th>
-                </tr>
-                <tr th:each="c: ${celulares}">
-                    <td th:text="${c.marca}"></td>
-                    <td th:text="${c.imei}"></td>
-                    <td th:text="${c.pulgadas}"></td>
-                    <td th:text="${c.megapixeles}"></td>
-                    <td th:text="${c.ram}"></td>
-                    <td th:text="${c.almacenimientoPrincial}"></td>
-                    <td th:text="${c.megapixeles}"></td>
-                </tr>
-            </table>
-        </div>
-        <div th:if="${celulares == null or celulares.empty}">
-            La lista de celulares esta vacia.
-         </div>   
+        <b>CEDULA:</B><span th:text="${alguien.cedula}"></span><br>
+        <b>CLAVE:</B><span th:text="${alguien.clave}"></span><br>
+        <b>NOMBRE:</B><span th:text="${alguien.nombre}"></span><br>
+        <b>EMAIL:</B><span th:text="${alguien.email}"></span><br>
     </body>
 </html>
