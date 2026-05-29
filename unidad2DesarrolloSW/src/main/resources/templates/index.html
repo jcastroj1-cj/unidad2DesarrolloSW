@@ -17,15 +17,15 @@
                     <th>EMAIL</th>
                 </tr>
                 <tr th:each="u:${usuarios}">
-                    <th th:text="$u.{cedula}"></th>
-                    <th th:text="$u.{clave}"></th>
-                    <th th:text="$u.{nombre}"></th>
-                    <th th:text="$u.{email}"></th>
+                    <th th:text="${u.cedula}"></th>
+                    <th th:text="${u.clave}"></th>
+                    <th th:text="${u.nombre}"></th>
+                    <th th:text="${u.email}"></th>
                 </tr>
             </table>
         </div>
         <div th:if="${usuario == null or usuarios.empty}">
-            La lista de usuarios esta vacia
+            
         </div>    
     </body>
 </html>
