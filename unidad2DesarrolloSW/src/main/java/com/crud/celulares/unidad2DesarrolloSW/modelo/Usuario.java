@@ -4,14 +4,23 @@
  */
 package com.crud.celulares.unidad2DesarrolloSW.modelo;
 
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import java.io.Serializable;
+import jakarta.persistence.Entity;
 import lombok.Data;
 
 /**
  *
  * @author Jean Carlos
  */
+@Entity
+@Table(name ="usuarios")
 @Data
-public class Usuario {
+public class Usuario implements Serializable{
+    
+    private static final long serialVersionUID =1L;
+    @Id
     //PROPIEDADES
     private String cedula;
     private String clave;
