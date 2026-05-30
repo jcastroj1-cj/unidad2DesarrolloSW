@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Lista de Celulares</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <header th:replace="plantillas/partes :: cabecero"></header>
+        <h2>LISTA DE CELULARES</h2>
+        <a th:href="@{/celulares/agregar}">AGREGAR CELULAR</a>
+        <hr>
+
+        <div th:if="${celulares != null and !celulares.empty}">
+            <table border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>MARCA</th>
+                    <th>IMEI</th>
+                    <th>PULGADAS</th>
+                    <th>MEGAPIXELES</th>
+                    <th>RAM</th>
+                    <th>ALMAC. PRINCIPAL</th>
+                    <th>ALMAC. SECUNDARIO</th>
+                    <th>SISTEMA OPERATIVO</th>
+                    <th>OPERADOR</th>
+                    <th>TECNOLOGÍA BANDA</th>
+                    <th>WIFI</th>
+                    <th>BLUETOOTH</th>
+                    <th>CÁMARAS</th>
+                    <th>MARCA CPU</th>
+                    <th>VELOCIDAD CPU</th>
+                    <th>NFC</th>
+                    <th>HUELLA</th>
+                    <th>IR</th>
+                    <th>RESISTE AGUA</th>
+                    <th>CANT. SIM</th>
+                    <th>EDITAR</th>
+                    <th>ELIMINAR</th>
+                </tr>
+                <tr th:each="c : ${celulares}">
+                    <td th:text="${c.id}"></td>
+                    <td th:text="${c.marca}"></td>
+                    <td th:text="${c.imei}"></td>
+                    <td th:text="${c.pulgadas}"></td>
+                    <td th:text="${c.megapixeles}"></td>
+                    <td th:text="${c.ram}"></td>
+                    <td th:text="${c.almacenamientoPrincipal}"></td>
+                    <td th:text="${c.almacenamientoSecundario}"></td>
+                    <td th:text="${c.sistemaOperativo}"></td>
+                    <td th:text="${c.operador}"></td>
+                    <td th:text="${c.tecnologiaBanda}"></td>
+                    <td th:text="${c.wifi}"></td>
+                    <td th:text="${c.bluetooth}"></td>
+                    <td th:text="${c.camaras}"></td>
+                    <td th:text="${c.marcaCpu}"></td>
+                    <td th:text="${c.velocidadCpu}"></td>
+                    <td th:text="${c.nfc}"></td>
+                    <td th:text="${c.huella}"></td>
+                    <td th:text="${c.ir}"></td>
+                    <td th:text="${c.resisteAgua}"></td>
+                    <td th:text="${c.cantidadSim}"></td>
+                    <td><a th:href="@{/celulares/editar/} + ${c.id}">EDITAR</a></td>
+                    <td><a th:href="@{/celulares/eliminar/} + ${c.id}">ELIMINAR</a></td>
+                </tr>
+            </table>
+        </div>
+
+        <div th:if="${celulares == null or celulares.empty}">
+            La lista de celulares está vacía.
+        </div>
+        <br/><hr>
+        <footer th:replace="plantillas/partes :: pie"></footer>
+    </body>
+</html>
