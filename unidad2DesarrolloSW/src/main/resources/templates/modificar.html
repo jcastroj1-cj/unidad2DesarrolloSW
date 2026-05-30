@@ -17,16 +17,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <br/>
         <label for="cedula">CEDULA</label>
         <input type="text" name="cedula" th:field="*{cedula}" required />
+        <span th:if="${fields.hasErrors('cedula')" th:erros="(cedula)">La cedula es requerida</span> 
         <br/>
-        <label for="clave
-               ">CLAVE</label>
+        <label for="clave">CLAVE</label>
         <input type="password" name="clave" th:field="*{clave}" />
+        <span th:if="${fields.hasErrors('clave')" th:erros="(clave)">La cedula es requerida</span>
         <br/>
         <label for="nombre">NOMBRE</label>
         <input type="text" name="nombre" th:field="*{nombre}" required />
+        <span th:if="${fields.hasErrors('nombre')" th:erros="(nombre)">El nombre es requerido</span>
         <br/>
         <label for="email">EMAIL</label>
         <input type="text" name="email" th:field="*{email}" />
+        <span th:if="${fields.hasErrors('email')" th:erros="(email)">El e-Mail es requerido</span>
         <br/>
         <input type="reset" value="LIMPIAR"/> &nbsp;&nbsp;&nbsp;
         <input type="submit" name="guardar" value="GUARDAR"/>

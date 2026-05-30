@@ -5,7 +5,7 @@
 package com.crud.celulares.unidad2DesarrolloSW.controladores;
 
 import java.util.List;
-//import java.util.Arrays;
+//import java.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import com.crud.celulares.unidad2DesarrolloSW.dao.IUsuarioCrud;
 import com.crud.celulares.unidad2DesarrolloSW.modelo.Usuario;

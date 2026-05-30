@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
     </head>
     <body>
+        <header th:replace="plantillas/partes :: cabecero"></header>
         <h2>PAGINA DE INICIO</h2>
         <a th:herf="@{/agregar}">AGREGAR USUARIO</a>
         <h4>LISTA DE PERSONAS</h4>
@@ -31,7 +32,8 @@
             </table>
         </div>
         <div th:if="${usuario == null or usuarios.empty}">
-            
-        </div>    
+            la lista de usuario esta vacia
+        </div> <br/><hr>
+        <footer th:replace="plantillas/partes :: pie"></footer>
     </body>
 </html>
