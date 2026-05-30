@@ -3,36 +3,105 @@
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns="https://www.w3.org/1999/xhtml">  
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>DATOS DEL USUARIO</title>
+        <title>Datos del Usuario</title>
         <meta charset="UTF-8">
-     </head>
+        <style>
+            * { margin: 0; padding: 0; box-sizing: border-box; }
+            body { background-color: #1a1a2e; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; }
+            .container { padding: 30px; max-width: 500px; }
+            h1 { color: #e94560; margin-bottom: 20px; letter-spacing: 1px; font-size: 22px; }
+            .btn-back {
+                display: inline-block;
+                padding: 8px 18px;
+                background-color: #0f3460;
+                color: #7eb3ff;
+                text-decoration: none;
+                border-radius: 6px;
+                font-size: 13px;
+                margin-bottom: 24px;
+                border: 1px solid #1a4a8a;
+                transition: background 0.2s;
+            }
+            .btn-back:hover { background-color: #1a4a8a; }
+            label {
+                display: block;
+                margin-bottom: 6px;
+                color: #a0a0b0;
+                font-size: 12px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+            input[type=text], input[type=password] {
+                width: 100%;
+                padding: 10px 14px;
+                margin-bottom: 18px;
+                background-color: #0f3460;
+                border: 1px solid #1a4a8a;
+                border-radius: 6px;
+                color: #e0e0e0;
+                font-size: 14px;
+                outline: none;
+                transition: border 0.3s;
+            }
+            input[type=text]:focus, input[type=password]:focus { border-color: #e94560; }
+            .form-actions { display: flex; gap: 12px; margin-top: 8px; }
+            input[type=reset] {
+                padding: 10px 24px;
+                background-color: #0f3460;
+                color: #a0a0b0;
+                border: 1px solid #1a4a8a;
+                border-radius: 6px;
+                cursor: pointer;
+                font-size: 14px;
+                transition: background 0.2s;
+            }
+            input[type=reset]:hover { background-color: #1a4a8a; }
+            input[type=submit] {
+                padding: 10px 24px;
+                background-color: #e94560;
+                color: white;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+                font-size: 14px;
+                font-weight: bold;
+                transition: background 0.3s;
+            }
+            input[type=submit]:hover { background-color: #c73652; }
+            span { color: #ff6b6b; font-size: 12px; display: block; margin-top: -14px; margin-bottom: 14px; }
+        </style>
+    </head>
     <body>
-        <h1>[[#{usuario.formulario}]]</h1>
-        <a th:href="@{/}">[[#{enlace.regresar}]]</a>
-        <br/>
-    <form th:action="@{/guardar}" method="POST" th:object="${usuario}">
-        <br/>
-        <label for="cedula" th:text="#{usuario.cedula}"></label>
-        <input type="text" name="cedula" th:field="*{cedula}"/>
-        <span th:if="${#fields.hasErrors('cedula')}" th:errors="*{cedula}">La cedula es requerida</span> 
-        <br/>
-        <label for="clave" th:text="#{usuario.clave}"></label>
-        <input type="password" name="clave" th:field="*{clave}" />
-        <span th:if="${#fields.hasErrors('clave')}" th:errors="*{clave}">La cedula es requerida</span>
-        <br/>
-        <label for="nombre" th:text="#{usuario.nombre}"></label>
-        <input type="text" name="nombre" th:field="*{nombre}"/>
-        <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">El nombre es requerido</span>
-        <br/>
-        <label for="email" th:text="#{usuario.email}"></label>
-        <input type="text" name="email" th:field="*{email}" />
-        <span th:if="${#fields.hasErrors('email')}" th:errors="*{EMAIL">El e-Mail es requerido</span>
-        <br/>
-        <input type="reset" th:value="#{accion.reinicar}"/> &nbsp;&nbsp;&nbsp;
-        <input type="submit" name="guardar" th:value="#{accion.agregar}"/>
-      </form>
+        <header th:replace="plantillas/partes :: cabecero"></header>
+        <div class="container">
+            <h1>Datos del Usuario</h1>
+            <a th:href="@{/}" class="btn-back">← REGRESAR</a>
+            <form th:action="@{/guardar}" method="POST" th:object="${usuario}">
+    
+    <label>Cédula</label>
+    <input type="text" th:field="*{cedula}" th:readonly="${usuario.cedula != null}" required />
+    <span th:if="${#fields.hasErrors('cedula')}" th:errors="*{cedula}"></span>
+    
+    <label>Clave</label>
+    <input type="password" th:field="*{clave}" />
+    <span th:if="${#fields.hasErrors('clave')}" th:errors="*{clave}"></span>
+    
+    <label>Nombre</label>
+    <input type="text" th:field="*{nombre}" required />
+    <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
+    
+    <label>Email</label>
+    <input type="text" th:field="*{email}" />
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+    
+    <div class="form-actions">
+        <input type="reset" value="LIMPIAR" />
+        <input type="submit" value="GUARDAR" />
+    </div>
+</form>
+        </div>
+        <footer th:replace="plantillas/partes :: pie"></footer>
     </body>
 </html>

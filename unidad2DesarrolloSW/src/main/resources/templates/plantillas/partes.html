@@ -19,22 +19,29 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                }
-                header h1 {
-                    color: #e94560;
-                    font-size: 20px;
-                    letter-spacing: 2px;
                     font-family: 'Segoe UI', sans-serif;
                 }
-                .header-user {
+                header h1 { color: #e94560; font-size: 20px; letter-spacing: 2px; }
+                nav { display: flex; gap: 10px; }
+                nav a {
+                    padding: 7px 16px;
+                    background-color: #0f3460;
+                    color: #7eb3ff;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    font-size: 13px;
+                    border: 1px solid #1a4a8a;
+                    transition: background 0.2s;
+                }
+                nav a:hover { background-color: #1a4a8a; }
+                .header-right {
                     color: #a0a0b0;
-                    font-family: 'Segoe UI', sans-serif;
                     font-size: 14px;
                     display: flex;
                     align-items: center;
                     gap: 14px;
                 }
-                .header-user strong { color: #e0e0e0; }
+                .header-right strong { color: #e0e0e0; }
                 .btn-logout {
                     background-color: #e94560;
                     color: white;
@@ -48,8 +55,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 }
                 .btn-logout:hover { background-color: #c73652; }
             </style>
+
             <h1>📱 APP WEB MVC CON SPRING BOOT</h1>
-            <div class="header-user" sec:authorize="isAuthenticated()">
+
+            <nav>
+                <a th:href="@{/}">👤 Usuarios</a>
+                <a th:href="@{/celulares/}">📱 Celulares</a>
+            </nav>
+
+            <div class="header-right" sec:authorize="isAuthenticated()">
                 <span>Usuario: <strong sec:authentication="name"></strong></span>
                 <form th:action="@{/logout}" method="POST" style="margin:0;">
                     <button type="submit" class="btn-logout">CERRAR SESIÓN</button>
@@ -70,7 +84,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     margin-top: 40px;
                 }
                 footer a { color: #e94560; text-decoration: none; }
-                footer a:hover { text-decoration: underline; }
             </style>
             <span>By: JEAN CARLOS CASTRO JINETE</span>
         </footer>
