@@ -6,6 +6,7 @@
     </head>
     <body>
         <h2>PAGINA DE INICIO</h2>
+        <a th:herf="@{/agregar}">AGREGAR USUARIO</a>
         <h4>LISTA DE PERSONAS</h4>
         <hr>
         <div th:if="${usuarios !=null and !usuarios.empty}">
@@ -15,12 +16,14 @@
                     <th>CLAVE</th>
                     <th>NOMBRE</th>
                     <th>EMAIL</th>
+                    <th>EDITAR</th>
                 </tr>
                 <tr th:each="u:${usuarios}">
                     <th th:text="${u.cedula}"></th>
                     <th th:text="${u.clave}"></th>
                     <th th:text="${u.nombre}"></th>
                     <th th:text="${u.email}"></th>
+                    <th><a th:href="@{/editar/}+${u.cedula}" th:text="EDITAR"><a/></td>
                 </tr>
             </table>
         </div>
