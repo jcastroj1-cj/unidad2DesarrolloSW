@@ -57,5 +57,11 @@ public class ControladorInicio {
         modelo.addAttribute("usuario",usuario);
         return "modificar";
     }
+    @GetMapping ("/eliminar/{cedula}")
+    public String eliminar(Usuario usuario, Model modelo){
+        log.info("Invocando el metodo EDITAR");
+        userServicio.eliminar(usuario);
+        return "modificar";
+    }    
 }   
 
